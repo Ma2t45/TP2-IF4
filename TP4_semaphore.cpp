@@ -25,8 +25,9 @@ void IRAM_ATTR toggleLED() {
     xSemaphoreGiveFromISR(syncSema,&xHigherPriorityTaskWoken);
   }
   xLastTick = xCurrentTick;
-  portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
-
+  if(xHigherPriorityTaskWoken){
+    portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+  }
 }
 
 void setup() {
