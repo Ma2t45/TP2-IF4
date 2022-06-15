@@ -26,7 +26,7 @@ void IRAM_ATTR toggleLED() {
   }
   xLastTick = xCurrentTick;
   if(xHigherPriorityTaskWoken){
-    portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+    portYIELD_FROM_ISR();
   }
 }
 
